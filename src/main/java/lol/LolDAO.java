@@ -6,7 +6,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class LolDAO implements LolService {
 
 	@Override
-	public List<LolTierVO> Tier() {
+	public List<LolTierVO> Tier(String name) {
 		ObjectMapper om = new ObjectMapper();
 		LolSummonerVO vo = null;
 		
