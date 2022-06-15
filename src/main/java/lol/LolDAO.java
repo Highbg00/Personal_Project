@@ -2,8 +2,13 @@ package lol;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
-public class LolDAO implements LolService {
+
+
+@Repository
+public class LolDAO implements LolService  {
 
 	@Override
 	public List<LolTierVO> Tier(String name) {
@@ -15,4 +20,11 @@ public class LolDAO implements LolService {
 		return null;
 	}
 
+	@Override
+	public LolSummonerVO SummonerInfo(String Id) {
+		
+		return null;
+	}
 }
+
+

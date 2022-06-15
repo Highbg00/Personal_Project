@@ -1,7 +1,9 @@
 package lol;
 
-public class LolSummonerVO {
-	private String id, accountid, puuid, name;
+import java.io.Serializable;
+
+public class LolSummonerVO implements Serializable{
+	private String id, accountId, puuid, name;
 	private int profileIconId, revisionDate, summonerLevel;
 	
 	public String getId() {
@@ -10,11 +12,11 @@ public class LolSummonerVO {
 	public void setId(String id) {
 		this.id = id;
 	}
-	public String getAccountid() {
-		return accountid;
+	public String getAccountId() {
+		return accountId;
 	}
-	public void setAccountid(String accountid) {
-		this.accountid = accountid;
+	public void setAccountId(String accountId) {
+		this.accountId = accountId;
 	}
 	public String getPuuid() {
 		return puuid;
