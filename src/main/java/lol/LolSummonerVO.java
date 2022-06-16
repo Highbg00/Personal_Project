@@ -1,10 +1,8 @@
 package lol;
 
-import java.io.Serializable;
-
-public class LolSummonerVO implements Serializable{
+public class LolSummonerVO{
 	private String id, accountId, puuid, name;
-	private int profileIconId, revisionDate, summonerLevel;
+	private long profileIconId, revisionDate, summonerLevel;
 	
 	public String getId() {
 		return id;
@@ -30,19 +28,19 @@ public class LolSummonerVO implements Serializable{
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getProfileIconId() {
+	public long getProfileIconId() {
 		return profileIconId;
 	}
 	public void setProfileIconId(int profileIconId) {
 		this.profileIconId = profileIconId;
 	}
-	public int getRevisionDate() {
+	public long getRevisionDate() {
 		return revisionDate;
 	}
 	public void setRevisionDate(int revisionDate) {
 		this.revisionDate = revisionDate;
 	}
-	public int getSummonerLevel() {
+	public long getSummonerLevel() {
 		return summonerLevel;
 	}
 	public void setSummonerLevel(int summonerLevel) {

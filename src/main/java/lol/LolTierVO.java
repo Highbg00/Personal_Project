@@ -1,9 +1,19 @@
 package lol;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true) //선언한 필드 이외의 요소를 전부 배제하는 어노테이션
 public class LolTierVO {
-	private String queueType, tier, rank;
+	private String leagueId, queueType, tier, rank;
 	private int leaguePoints, wins, losses;
 	
+	
+	public String getLeagueId() {
+		return leagueId;
+	}
+	public void setLeagueId(String leagueId) {
+		this.leagueId = leagueId;
+	}
 	public String getQueueType() {
 		return queueType;
 	}
