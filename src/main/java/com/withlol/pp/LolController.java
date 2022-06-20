@@ -3,8 +3,10 @@ package com.withlol.pp;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 
+import org.json.JSONArray;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -15,6 +17,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import lol.LolRecordVO;
 import lol.LolServiceImpl;
 import lol.LolSummonerVO;
 import lol.LolTierVO;
@@ -22,7 +25,8 @@ import lol.LolTierVO;
 @Controller
 public class LolController {
 	@Autowired private LolServiceImpl service;
-	
+
+	@SuppressWarnings("null")
 	@RequestMapping("/record/{Id}")
 	public String record(@PathVariable String Id, Model model) {
 		System.out.println(Id);
@@ -51,6 +55,15 @@ public class LolController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		JSONArray array = service.LolRecord(vo.getPuuid());
+		List<LolRecordVO> record_list = new ArrayList<LolRecordVO>();
+		for(int i = 0; i < array.length(); i++) {
+			System.out.println(array.get(i));
+			record_list.add(i, service.RecordDetail(array.get(i).toString()));
+		}
+		
+		
 		
 		return "record/record";
 	}

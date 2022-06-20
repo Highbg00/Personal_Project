@@ -9,6 +9,7 @@ import org.apache.http.client.ResponseHandler;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.BasicResponseHandler;
 import org.apache.http.impl.client.HttpClientBuilder;
+import org.json.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -82,5 +83,61 @@ public class LolServiceImpl implements LolService {
 		System.out.println(vo.getName());
 		return vo;
 	}
+
+	@Override
+	public JSONArray LolRecord(String puuid) {
+		JSONArray array = null;
+		String requestURL = "https://asia.api.riotgames.com/lol/match/v5/matches/by-puuid/"+ puuid + "/ids?start=0&count=20&api_key=" + common.CommonVal.API_KEY;
+		try {
+			HttpClient client = HttpClientBuilder.create().build(); // HttpClient 생성
+			HttpGet getRequest = new HttpGet(requestURL); //GET 메소드 URL 생성
+			HttpResponse response = client.execute(getRequest);
+			
+			if (response.getStatusLine().getStatusCode() == 200) {
+				ResponseHandler<String> handler = new BasicResponseHandler();
+				String body = handler.handleResponse(response);
+
+				array = new JSONArray(body);
+		        }
+			
+		}
+		catch (Exception e) {
+			System.out.println(e.getMessage());
+			// TODO: handle exception
+		}
+		
+		return array;
+	}
+
+	@Override
+	public LolRecordVO RecordDetail(String matchId) {
+		ObjectMapper mapper = new ObjectMapper();
+		LolRecordVO vo = new LolRecordVO(); 
+		
+		String requestURL = "https://asia.api.riotgames.com/lol/match/v5/matches/"+ matchId + "?api_key=" + common.CommonVal.API_KEY;
+		try {
+			HttpClient client = HttpClientBuilder.create().build(); // HttpClient 생성
+			HttpGet getRequest = new HttpGet(requestURL); //GET 메소드 URL 생성
+			HttpResponse response = client.execute(getRequest);
+			
+			if (response.getStatusLine().getStatusCode() == 200) {
+				ResponseHandler<String> handler = new BasicResponseHandler();
+				String body = handler.handleResponse(response);
+				System.out.println(body);
+				vo = mapper.readValue(body, LolRecordVO.class);
+				System.out.println(vo);
+		        }
+			
+		}
+		catch (Exception e) {
+			System.out.println(e.getMessage());
+			// TODO: handle exception
+		}
+		
+		return vo;
+	}
+
+	
+	
 	
 }
