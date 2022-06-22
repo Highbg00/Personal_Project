@@ -2,7 +2,6 @@ package com.withlol.pp;
 
 
 import java.io.IOException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,10 +16,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import lol.InfoVO;
 import lol.LolRecordVO;
 import lol.LolServiceImpl;
 import lol.LolSummonerVO;
 import lol.LolTierVO;
+import lol.ParticipantsVO;
 
 @Controller
 public class LolController {
@@ -58,11 +59,23 @@ public class LolController {
 		
 		JSONArray array = service.LolRecord(vo.getPuuid());
 		List<LolRecordVO> record_list = new ArrayList<LolRecordVO>();
+		List<InfoVO> gametype = new ArrayList<InfoVO>();
+		List<ParticipantsVO> record = new ArrayList<ParticipantsVO>();	//내 전적
 		for(int i = 0; i < array.length(); i++) {
-			System.out.println(array.get(i));
 			record_list.add(i, service.RecordDetail(array.get(i).toString()));
 		}
-		
+		System.out.println(record_list.get(1).getInfo().getParticipants().get(1));
+		for(int i = 0; i < record_list.size(); i++) {
+			gametype.add(record_list.get(i).getInfo());
+			List<ParticipantsVO> vo2 = record_list.get(i).getInfo().getParticipants();	//한 게임의 전체 플레이어 전적
+			for(int y = 0; y < vo2.size(); y++) {
+				if(vo.getName().equals(vo2.get(y).getSummonerName())) {
+					record.add(vo2.get(y));
+				}
+			}
+		}
+		model.addAttribute("gametype", gametype);
+		model.addAttribute("record", record);
 		
 		
 		return "record/record";

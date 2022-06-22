@@ -12,4 +12,6 @@ public interface LolService {
 	JSONArray LolRecord(String puuid); 
 	
 	LolRecordVO RecordDetail(String matchId);
+	
+
 }

@@ -6,8 +6,15 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class InfoVO {
+	private int queueId;
 	private String gameMode;
 	private List<ParticipantsVO> participants;
+	public int getQueueId() {
+		return queueId;
+	}
+	public void setQueueId(int queueId) {
+		this.queueId = queueId;
+	}
 	public String getGameMode() {
 		return gameMode;
 	}

@@ -40,7 +40,6 @@ public class LolServiceImpl implements LolService {
 			if (response.getStatusLine().getStatusCode() == 200) {
 				ResponseHandler<String> handler = new BasicResponseHandler();
 				String body = handler.handleResponse(response);
-				System.out.println(body);
 				list = Arrays.asList(mapper.readValue(body, LolTierVO[].class));
 	        }
 		}
@@ -123,9 +122,7 @@ public class LolServiceImpl implements LolService {
 			if (response.getStatusLine().getStatusCode() == 200) {
 				ResponseHandler<String> handler = new BasicResponseHandler();
 				String body = handler.handleResponse(response);
-				System.out.println(body);
 				vo = mapper.readValue(body, LolRecordVO.class);
-				System.out.println(vo);
 		        }
 			
 		}
@@ -137,7 +134,6 @@ public class LolServiceImpl implements LolService {
 		return vo;
 	}
 
-	
 	
 	
 }

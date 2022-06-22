@@ -31,6 +31,8 @@ public class LolDAO implements LolService  {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+
 }
 
 

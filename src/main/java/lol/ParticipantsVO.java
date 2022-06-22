@@ -4,9 +4,9 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ParticipantsVO {
-	private String summonerName, summonerId;
+	private String summonerName, summonerId, championName;
 	private boolean win;
-	private int championId, kills, deaths, assists, champLevel, item0, item1, item2, item3, item4, item5, item6, 
+	private int kills, deaths, assists, champLevel, item0, item1, item2, item3, item4, item5, item6, 
 				totalDamageDealtToChampions, totalDamageTaken, summoner1Id, summoner2Id, visionScore, visionWardsBoughtInGame, goldEarned, 
 				totalMinionsKilled, neutralMinionsKilled; //두개 합치면 총 CS 수임
 	
@@ -28,11 +28,11 @@ public class ParticipantsVO {
 	public void setWin(boolean win) {
 		this.win = win;
 	}
-	public int getChampionId() {
-		return championId;
+	public String getChampionName() {
+		return championName;
 	}
-	public void setChampionId(int championId) {
-		this.championId = championId;
+	public void setChampionName(String championName) {
+		this.championName = championName;
 	}
 	public int getKills() {
 		return kills;
