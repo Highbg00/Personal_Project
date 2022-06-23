@@ -5,6 +5,10 @@
 <html>
 <head>
 <style type="text/css">
+	.tierimg{
+		width: 200px;
+		height: 200px;
+	}
 	.sumicon{
 		width: 170px;
 		height: 170px;
@@ -47,52 +51,115 @@
 		<div>
 			<img src=""/>
 		</div>
+		<p>솔로 랭크</p>
 		<c:forEach items="${tier }" var="vo">	
 			<c:choose>
-				<c:when	test="${vo.queueType eq 'RANKED_TFT_DOUBLE_UP' }">
+				<c:when test="${vo.queueType eq 'RANKED_SOLO_5x5' }">
+				<c:choose>
+					<c:when	test="${vo.queueType eq 'RANKED_TFT_DOUBLE_UP' }">
+					</c:when>
+					<c:otherwise>
+						<div>
+							<c:choose>
+								<c:when test="${vo.tier eq 'IRON' }">
+									<img class="tierimg" src="../resources/images/Emblem_Iron.png">
+								</c:when>
+								
+								<c:when test="${vo.tier eq 'BRONZE' }">
+									<img class="tierimg" src="../resources/images/Emblem_Bronze.png">
+								</c:when>
+								
+								<c:when test="${vo.tier eq 'SILVER' }">
+									<img class="tierimg" src="../resources/images/Emblem_Silver.png">
+								</c:when>
+								
+								<c:when test="${vo.tier eq 'GOLD' }">
+									<img class="tierimg" src="../resources/images/Emblem_Gold.png">
+								</c:when>
+								<c:when test="${vo.tier eq 'PLATINUM' }">
+									<img class="tierimg" src="../resources/images/Emblem_Platinum.png">
+								</c:when>
+								
+								<c:when test="${vo.tier eq 'DIAMOND' }">
+									<img class="tierimg" src="../resources/images/Emblem_Diamond.png">
+								</c:when>
+								
+								<c:when test="${vo.tier eq 'MASTER' }">
+									<img class="tierimg" src="../resources/images/Emblem_Master.png">
+								</c:when>
+								
+								<c:when test="${vo.tier eq 'GRANDMASTER' }">
+									<img class="tierimg" src="../resources/images/Emblem_Grandmaster.png">
+								</c:when>
+								
+								<c:when test="${vo.tier eq 'CHALLENGER' }">
+									<img class="tierimg" src="../resources/images/Emblem_Challenger.png">
+								</c:when>
+							</c:choose>
+							<p>${vo.tier } ${vo.rank }</p>
+							<p>${vo.leaguePoints }점</p>
+							<p>승리 수: ${vo.wins }  패배 수: ${vo.losses }</p>
+						</div>
+					</c:otherwise>
+				</c:choose>
 				</c:when>
 				<c:otherwise>
-					<div>
-						<c:choose>
-							<c:when test="${vo.tier eq 'IRON' }">
-								<img src="resources/images/Emblem_Iron.png">
-							</c:when>
-							
-							<c:when test="${vo.tier eq 'BRONZE' }">
-								<img src="resources/images/Emblem_Bronze.png">
-							</c:when>
-							
-							<c:when test="${vo.tier eq 'SILVER' }">
-								<img src="resources/images/Emblem_Silver.png">
-							</c:when>
-							
-							<c:when test="${vo.tier eq 'GOLD' }">
-								<img src="resources/images/Emblem_Gold.png">
-							</c:when>
-							<c:when test="${vo.tier eq 'PLATINUM' }">
-								<img src="resources/images/Emblem_Platinum.png">
-							</c:when>
-							
-							<c:when test="${vo.tier eq 'DIAMOND' }">
-								<img src="resources/images/Emblem_Diamond.png">
-							</c:when>
-							
-							<c:when test="${vo.tier eq 'MASTER' }">
-								<img src="resources/images/Emblem_Master.png">
-							</c:when>
-							
-							<c:when test="${vo.tier eq 'GRANDMASTER' }">
-								<img src="resources/images/Emblem_Grandmaster.png">
-							</c:when>
-							
-							<c:when test="${vo.tier eq 'CHALLENGER' }">
-								<img src="resources/images/Emblem_Challenger.png">
-							</c:when>
-						</c:choose>
-						<p>${vo.tier } ${vo.rank }</p>
-						<p>${vo.leaguePoints }점</p>
-						<p>승리 수: ${vo.wins }  패배 수: ${vo.losses }</p>
-					</div>
+				</c:otherwise>
+			</c:choose>
+		</c:forEach>
+		<p>자유 랭크</p>
+		<c:forEach items="${tier }" var="vo">	
+			<c:choose>
+				<c:when test="${vo.queueType eq 'RANKED_FLEX_SR' }">
+				<c:choose>
+					<c:when	test="${vo.queueType eq 'RANKED_TFT_DOUBLE_UP' }">
+					</c:when>
+					<c:otherwise>
+						<div>
+							<c:choose>
+								<c:when test="${vo.tier eq 'IRON' }">
+									<img class="tierimg" src="../resources/images/Emblem_Iron.png">
+								</c:when>
+								
+								<c:when test="${vo.tier eq 'BRONZE' }">
+									<img class="tierimg" src="../resources/images/Emblem_Bronze.png">
+								</c:when>
+								
+								<c:when test="${vo.tier eq 'SILVER' }">
+									<img class="tierimg" src="../resources/images/Emblem_Silver.png">
+								</c:when>
+								
+								<c:when test="${vo.tier eq 'GOLD' }">
+									<img class="tierimg" src="../resources/images/Emblem_Gold.png">
+								</c:when>
+								<c:when test="${vo.tier eq 'PLATINUM' }">
+									<img class="tierimg" src="../resources/images/Emblem_Platinum.png">
+								</c:when>
+								
+								<c:when test="${vo.tier eq 'DIAMOND' }">
+									<img class="tierimg" src="../resources/images/Emblem_Diamond.png">
+								</c:when>
+								
+								<c:when test="${vo.tier eq 'MASTER' }">
+									<img class="tierimg" src="../resources/images/Emblem_Master.png">
+								</c:when>
+								
+								<c:when test="${vo.tier eq 'GRANDMASTER' }">
+									<img class="tierimg" src="../resources/images/Emblem_Grandmaster.png">
+								</c:when>
+								
+								<c:when test="${vo.tier eq 'CHALLENGER' }">
+									<img class="tierimg" src="../resources/images/Emblem_Challenger.png">
+								</c:when>
+							</c:choose>
+							<p>${vo.tier } ${vo.rank }</p>
+							<p>${vo.leaguePoints }점</p>
+							<p>승리 수: ${vo.wins }  패배 수: ${vo.losses }</p>
+						</div>
+					</c:otherwise>
+				</c:choose>
+				</c:when>
+				<c:otherwise>
 				</c:otherwise>
 			</c:choose>
 		</c:forEach>

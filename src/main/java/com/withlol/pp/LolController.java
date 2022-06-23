@@ -78,6 +78,7 @@ public class LolController {
 		model.addAttribute("record", record);
 		
 		
+		
 		return "record/record";
 	}
 	
