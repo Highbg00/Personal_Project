@@ -28,19 +28,19 @@ public class LolController {
 	@Autowired private LolServiceImpl service;
 
 	@SuppressWarnings("null")
-	@RequestMapping("/record/{Id}")
-	public String record(@PathVariable String Id, Model model) {
-		System.out.println(Id);
+	@RequestMapping("/record")
+	public String record(String userid, Model model) {
+		System.out.println(userid);
 		String str = null;
-		LolSummonerVO vo = service.SummonerInfo(Id);
+		LolSummonerVO vo = service.SummonerInfo(userid);
 		model.addAttribute("vo", vo);
 		
 		List<LolTierVO> list = service.Tier(vo.getId());
 		model.addAttribute("tier", list);
 		
 		
-		Id = Id.trim();
-		String url = "https://www.op.gg/summoners/kr/"+Id;
+		userid = userid.trim();
+		String url = "https://www.op.gg/summoners/kr/"+userid;
 		try {
 			Document doc = Jsoup.connect(url).get();
 			Elements elem = doc.select("div[class=\"css-e9xk5o e1g7spwk3\"]");

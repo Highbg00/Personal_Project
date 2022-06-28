@@ -19,7 +19,7 @@
 </style>
 <header style="border-bottom: 1px solid #ccc; padding: 15px 0; text-align: left;">
 	<div class="logo" style="width: 1920px;">
-		<img src="resources/images/logo.png">
+		<a href="<c:url value="/"/>"><img src="./resources/images/logo.png"></a>
 		<a class="com">커뮤니티</a>
 		<div style='position: absolute;right: 0; top: 24px; margin-right: 200px;'>
 			<!-- 로그인을 하지 않은 경우 -->
@@ -27,7 +27,7 @@
 				<ul>
 					<li>
 						<a class='btn-fill' href='login'>로그인</a>		
-						<a class='btn-fill' href='member'>회원가입</a>
+						<a class='btn-fill' href='join'>회원가입</a>
 					</li>
 				</ul>
 			</c:if>
@@ -35,7 +35,7 @@
 			<c:if test="${ !empty loginInfo }">
 				<ul>
 					<li>
-						<strong>${loginInfo.name }</strong>님 
+						<strong>${loginInfo.member_id }</strong>님 
 					</li>	
 					<li>		
 						<a class='btn-fill' href='logout'>로그아웃</a>

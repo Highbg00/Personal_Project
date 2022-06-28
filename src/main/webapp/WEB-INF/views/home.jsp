@@ -11,13 +11,15 @@
 	</style>
 </head>
 <body>
+<form action="record" method="post">
 <div class="main_logo">
 	<img src="resources/images/logo.png"/>
 	
 	<p style="margin-top: 50px;">
-		<input type="text" placeholder="소환사명을 입력하십시오."/>
-		<button>검색</button>
+		<input type="text" placeholder="소환사명을 입력하십시오." name="userid"/>
+		<a class='btn-fill' onclick="$('form').submit()">검색</a>
 	</p>
 </div>
+</form>
 </body>
 </html>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="member.mapper">
+	<insert id='join'>
+		insert into kbg_member (member_id, member_pw, member_email, admin)
+		values (#{member_id}, #{member_pw}, #{member_email}, #{admin})
+	</insert>
+	
+	<select id='id_chk' resultType="integer">
+		select count(*) from kbg_member
+		where member_id = #{member_id}
+	</select>
+</mapper>

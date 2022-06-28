@@ -37,11 +37,21 @@
 		width: 25px;
 		height: 25px;
 	}
+	.itemicon{
+		width: 32px;
+		height: 32px;
+	}
 </style>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
+	<form action="record" method="post">
+		<p>
+			<input type="text" placeholder="소환사명을 입력하십시오." name="userid"/>
+			<a class='btn-fill' onclick="$('form').submit()">검색</a>
+		</p>
+	</form>
 	<div style="width: 1500px; border: 1px solid black; align: center;" class="tier">
 		<div>
 			<img class="sumicon" src="http://ddragon.leagueoflegends.com/cdn/12.11.1/img/profileicon/${vo.profileIconId }.png"/>
@@ -62,38 +72,38 @@
 						<div>
 							<c:choose>
 								<c:when test="${vo.tier eq 'IRON' }">
-									<img class="tierimg" src="../resources/images/Emblem_Iron.png">
+									<img class="tierimg" src="./resources/images/Emblem_Iron.png">
 								</c:when>
 								
 								<c:when test="${vo.tier eq 'BRONZE' }">
-									<img class="tierimg" src="../resources/images/Emblem_Bronze.png">
+									<img class="tierimg" src="./resources/images/Emblem_Bronze.png">
 								</c:when>
 								
 								<c:when test="${vo.tier eq 'SILVER' }">
-									<img class="tierimg" src="../resources/images/Emblem_Silver.png">
+									<img class="tierimg" src="./resources/images/Emblem_Silver.png">
 								</c:when>
 								
 								<c:when test="${vo.tier eq 'GOLD' }">
-									<img class="tierimg" src="../resources/images/Emblem_Gold.png">
+									<img class="tierimg" src="./resources/images/Emblem_Gold.png">
 								</c:when>
 								<c:when test="${vo.tier eq 'PLATINUM' }">
-									<img class="tierimg" src="../resources/images/Emblem_Platinum.png">
+									<img class="tierimg" src="./resources/images/Emblem_Platinum.png">
 								</c:when>
 								
 								<c:when test="${vo.tier eq 'DIAMOND' }">
-									<img class="tierimg" src="../resources/images/Emblem_Diamond.png">
+									<img class="tierimg" src="./resources/images/Emblem_Diamond.png">
 								</c:when>
 								
 								<c:when test="${vo.tier eq 'MASTER' }">
-									<img class="tierimg" src="../resources/images/Emblem_Master.png">
+									<img class="tierimg" src="./resources/images/Emblem_Master.png">
 								</c:when>
 								
 								<c:when test="${vo.tier eq 'GRANDMASTER' }">
-									<img class="tierimg" src="../resources/images/Emblem_Grandmaster.png">
+									<img class="tierimg" src="./resources/images/Emblem_Grandmaster.png">
 								</c:when>
 								
 								<c:when test="${vo.tier eq 'CHALLENGER' }">
-									<img class="tierimg" src="../resources/images/Emblem_Challenger.png">
+									<img class="tierimg" src="./resources/images/Emblem_Challenger.png">
 								</c:when>
 							</c:choose>
 							<p>${vo.tier } ${vo.rank }</p>
@@ -118,38 +128,38 @@
 						<div>
 							<c:choose>
 								<c:when test="${vo.tier eq 'IRON' }">
-									<img class="tierimg" src="../resources/images/Emblem_Iron.png">
+									<img class="tierimg" src="./resources/images/Emblem_Iron.png">
 								</c:when>
 								
 								<c:when test="${vo.tier eq 'BRONZE' }">
-									<img class="tierimg" src="../resources/images/Emblem_Bronze.png">
+									<img class="tierimg" src="./resources/images/Emblem_Bronze.png">
 								</c:when>
 								
 								<c:when test="${vo.tier eq 'SILVER' }">
-									<img class="tierimg" src="../resources/images/Emblem_Silver.png">
+									<img class="tierimg" src="./resources/images/Emblem_Silver.png">
 								</c:when>
 								
 								<c:when test="${vo.tier eq 'GOLD' }">
-									<img class="tierimg" src="../resources/images/Emblem_Gold.png">
+									<img class="tierimg" src="./resources/images/Emblem_Gold.png">
 								</c:when>
 								<c:when test="${vo.tier eq 'PLATINUM' }">
-									<img class="tierimg" src="../resources/images/Emblem_Platinum.png">
+									<img class="tierimg" src="./resources/images/Emblem_Platinum.png">
 								</c:when>
 								
 								<c:when test="${vo.tier eq 'DIAMOND' }">
-									<img class="tierimg" src="../resources/images/Emblem_Diamond.png">
+									<img class="tierimg" src="./resources/images/Emblem_Diamond.png">
 								</c:when>
 								
 								<c:when test="${vo.tier eq 'MASTER' }">
-									<img class="tierimg" src="../resources/images/Emblem_Master.png">
+									<img class="tierimg" src="./resources/images/Emblem_Master.png">
 								</c:when>
 								
 								<c:when test="${vo.tier eq 'GRANDMASTER' }">
-									<img class="tierimg" src="../resources/images/Emblem_Grandmaster.png">
+									<img class="tierimg" src="./resources/images/Emblem_Grandmaster.png">
 								</c:when>
 								
 								<c:when test="${vo.tier eq 'CHALLENGER' }">
-									<img class="tierimg" src="../resources/images/Emblem_Challenger.png">
+									<img class="tierimg" src="./resources/images/Emblem_Challenger.png">
 								</c:when>
 							</c:choose>
 							<p>${vo.tier } ${vo.rank }</p>
@@ -262,49 +272,49 @@
 						<c:when test="${part.item0 eq 0 }">
 						</c:when>
 						<c:otherwise>
-							<img src="http://ddragon.leagueoflegends.com/cdn/12.11.1/img/item/${part.item0 }.png"/>
+							<img class="itemicon" src="http://ddragon.leagueoflegends.com/cdn/12.11.1/img/item/${part.item0 }.png"/>
 						</c:otherwise>
 					</c:choose>
 					<c:choose>
 						<c:when test="${part.item1 eq 0 }">
 						</c:when>
 						<c:otherwise>
-							<img src="http://ddragon.leagueoflegends.com/cdn/12.11.1/img/item/${part.item1 }.png"/>
+							<img class="itemicon" src="http://ddragon.leagueoflegends.com/cdn/12.11.1/img/item/${part.item1 }.png"/>
 						</c:otherwise>
 					</c:choose>
 					<c:choose>
 						<c:when test="${part.item2 eq 0 }">
 						</c:when>
 						<c:otherwise>
-							<img src="http://ddragon.leagueoflegends.com/cdn/12.11.1/img/item/${part.item2 }.png"/>
+							<img class="itemicon" src="http://ddragon.leagueoflegends.com/cdn/12.11.1/img/item/${part.item2 }.png"/>
 						</c:otherwise>
 					</c:choose>
 					<c:choose>
 						<c:when test="${part.item3 eq 0 }">
 						</c:when>
 						<c:otherwise>
-							<img src="http://ddragon.leagueoflegends.com/cdn/12.11.1/img/item/${part.item3 }.png"/>
+							<img class="itemicon" src="http://ddragon.leagueoflegends.com/cdn/12.11.1/img/item/${part.item3 }.png"/>
 						</c:otherwise>
 					</c:choose>
 					<c:choose>
 						<c:when test="${part.item4 eq 0 }">
 						</c:when>
 						<c:otherwise>
-							<img src="http://ddragon.leagueoflegends.com/cdn/12.11.1/img/item/${part.item4 }.png"/>
+							<img class="itemicon" src="http://ddragon.leagueoflegends.com/cdn/12.11.1/img/item/${part.item4 }.png"/>
 						</c:otherwise>
 					</c:choose>
 					<c:choose>
 						<c:when test="${part.item5 eq 0 }">
 						</c:when>
 						<c:otherwise>
-							<img src="http://ddragon.leagueoflegends.com/cdn/12.11.1/img/item/${part.item5 }.png"/>
+							<img class="itemicon" src="http://ddragon.leagueoflegends.com/cdn/12.11.1/img/item/${part.item5 }.png"/>
 						</c:otherwise>
 					</c:choose>
 					<c:choose>
 						<c:when test="${part.item6 eq 0 }">
 						</c:when>
 						<c:otherwise>
-							<img src="http://ddragon.leagueoflegends.com/cdn/12.11.1/img/item/${part.item6 }.png"/>
+							<img class="itemicon" src="http://ddragon.leagueoflegends.com/cdn/12.11.1/img/item/${part.item6 }.png"/>
 						</c:otherwise>
 					</c:choose>
 				</p>

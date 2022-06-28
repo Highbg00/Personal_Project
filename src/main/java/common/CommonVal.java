@@ -1,6 +1,6 @@
 package common;
 
 public class CommonVal {
-	public static String API_KEY = "RGAPI-18f06dfa-c96f-4a4d-b2b3-cd2af022e400";
+	public static String API_KEY = "RGAPI-9614dee6-fd16-426d-b19e-b72975992f95";
 	public static String datadragon = "12.11.1";
 }
